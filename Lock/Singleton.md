@@ -1,11 +1,11 @@
 ### 목차
 - [목차](#목차)
-- [Eager Initialization](#eager-initialization)
-- [Lazy Initialization (Synchronized)](#lazy-initialization-synchronized)
-- [Double Checked Locking](#double-checked-locking)
-- [Lazy Holder](#lazy-holder)
-- [DI Container](#di-container)
-- [Kotlin-Object](#kotlin-object)
+    - [Eager Initialization](#eager-initialization)
+    - [Lazy Initialization (Synchronized)](#lazy-initialization-synchronized)
+    - [Double Checked Locking](#double-checked-locking)
+    - [Lazy Holder](#lazy-holder)
+    - [DI Container](#di-container)
+    - [Kotlin (Object)](#kotlin-object)
 
 <br>
 
@@ -30,7 +30,7 @@ public class Singleton {
  
 <br>
 
-### Lazy Initialization - Synchronized
+### Lazy Initialization (Synchronized)
 ```java
 public class Singleton {
   
@@ -84,7 +84,7 @@ public class Sington {
  
 <br>
 
-### Lazy Holder (Bill Pugh Solution)
+### Lazy Holder
 ```java
 public class Singleton {
 
@@ -115,7 +115,7 @@ public class Singleton {
 
 <br>
 
-### DI 컨테이너
+### DI Container
 - 스프링같은 DI 프레임워크는 Bean Scope로 Singleton을 지원.
 - 테스트와 mocking에 용이하다.
 - Lazy Initialization 지원, @PostConstruct 등의 다양한 라이프사이클 제공
@@ -123,7 +123,7 @@ public class Singleton {
 
 <br>
 
-### Kotlin - Object
+### Kotlin (Object)
 - 언어 차원에서 싱글톤을 지원한다.
 - 해당 object가 처음 참조되는 시점에 클래스 초기화가 일어나고, 그 때 인스턴스가 한 번만 생성된다.
   - jvm 차원에서 동기화를 보장하므로 synchronized, volatile 없이 thread-safe 한 인스턴스를 얻을 수 있다.
