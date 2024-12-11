@@ -79,6 +79,7 @@ public class Singleton {
 
     private Singleton() {}
 
+    // Holder 클래스는 getInstance() 메서드가 호출될때 초기화 되는데, 이 시점에 JVM 차원에서 동기화 되어있다.
     private static class SingletonHolder {
         private static final Singleton INSTANCE = new Singleton();
     }
@@ -90,7 +91,6 @@ public class Singleton {
 }
 ```
 - Lazy Initialization, thread-safe
-- 메모리 누수를 방지하기 위해 static inner class 적용
 
 
 <br>
