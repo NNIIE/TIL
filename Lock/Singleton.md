@@ -49,13 +49,13 @@ public class Sington {
 
     private static volatile Singleton instance;
 
-    priavte Singleton() {}
+    private Singleton() {}
 
     public static Singleton getInstance() {
         if (instance == null) {
             // 인스턴스가 없을 경우에만 Singleton class에 동기화
             synchronized (Singleton.class) {
-                if (inscance == null) {
+                if (instance == null) {
                     instance = new Singleton();
                 }
             }
@@ -96,8 +96,9 @@ public class Singleton {
 <br>
 
 ### Enum
+- Effective Jav에서 권장하는 방식.
 - thread-safe
-- 리플렉션에 의해 singleton이 깨지지 않는다.
+- 직렬화, 리플렉션에 의해 singleton이 깨지지 않는다.
   - enum은 리플렉션으로 인스턴스 생성 불가
 - 상속 불가
 
