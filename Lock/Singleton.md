@@ -110,6 +110,27 @@ public class Singleton {
 - Lazy Initialization 지원, @PostConstruct 등의 다양한 라이프사이클 제공
 - 프레임워크에 의존적이다.
 
+<br>
+
+### Kotlin - Object
+- 언어 차원에서 싱글톤을 지원한다.
+- 해당 object가 처음 참조되는 시점에 클래스 초기화가 일어나고, 그 때 인스턴스가 한 번만 생성된다.
+  - jvm 차원에서 동기화를 보장하므로 synchronized, volatile 없이 thread-safe 한 인스턴스를 얻을 수 있다.
+- companion object?
+  - 코틀린 클래스 내에 하나만 선언할 수 있는 object이다. 자바의 static 멤버개념을 대체하는 개념이다.
+  - 정적 메서드나 정적 필드처럼 사용할 수 있다.
+  - companion object도 클래스가 처음 참조될 때 초기화 된다.
+
+```kotlin
+class MyClass {
+    companion object {
+        fun create() = MyClass()
+    }
+}
+
+val instance = MyClass.create() // 정적 메서드처럼 호출 가능
+```
+
 
 
 
