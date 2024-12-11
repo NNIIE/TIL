@@ -1,3 +1,14 @@
+### 목차
+- [목차](#목차)
+- [Eager Initialization](#eager-initialization)
+- [Lazy Initialization (Synchronized)](#lazy-initialization-synchronized)
+- [Double Checked Locking](#double-checked-locking)
+- [Lazy Holder](#lazy-holder)
+- [DI Container](#di-container)
+- [Kotlin-Object](#kotlin-object)
+
+<br>
+
 ### Eager Initialization
 ```java
 public class Singleton {
@@ -120,17 +131,6 @@ public class Singleton {
   - 코틀린 클래스 내에 하나만 선언할 수 있는 object이다. 자바의 static 멤버개념을 대체하는 개념이다.
   - 정적 메서드나 정적 필드처럼 사용할 수 있다.
   - companion object도 클래스가 처음 참조될 때 초기화 된다.
-
-```kotlin
-class MyClass {
-    companion object {
-        fun create() = MyClass()
-    }
-}
-
-val instance = MyClass.create() // 정적 메서드처럼 호출 가능
-```
-
 
 
 
