@@ -8,6 +8,7 @@
 - [CAS](#cas)
 - [Lock Striping](#lock-striping)
 - [Spin Lock](#spin-lock)
+- [Try Lock](#try-lock)
 
 <br>
 
@@ -136,8 +137,26 @@ void atomic_increment() {
 - 스레드가 대기상태에 빠지지 않고 CPU를 계속 점유하기 때문에 컨텍스트 스위칭 비용을 아낀다.
 - 임계영역의 작업이 복잡하거나 락의 점유-반환 시간이 길다면 CPU가 다른 스레드의 작업을 처리할 기회 비용을 날리며 busy waiting 상태에 빠져 비효율적
 
+<br>
 
+### Try Lock
+락을 시도하고, 즉시 얻을 수 있으면 true를 반환하고 락이 이미 사용중이라면 false를 반환한다.
+<br>
+블로킹 락과 다르게 실패할 경우 기다리지 않고 다른 작업을 진행할 수 있기 때문에 상대적으로 가볍다.
 
+```java
+ReentrantLock lock = new ReentrantLock();
+
+if (lock.tryLock()) {
+    try {
+        // 락 획득 성공, 임계영역 로직
+    } finally {
+        lock.unlock();
+    }
+} else {
+    // 이미 누군가가 락을 소유 중, 대안 로직 수행
+}
+```
 
 
 
